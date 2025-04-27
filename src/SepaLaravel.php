@@ -25,6 +25,8 @@ class SepaLaravel
 
     protected $controlSum = 0.0;
 
+    protected $pmtInfId;
+
     public function __construct()
     {
         $this->messageId = 'SEPA-'.date('Ymd-His').'-'.substr(uniqid(), -6);
@@ -41,6 +43,13 @@ class SepaLaravel
     public function setCreditor(Creditor $creditor): self
     {
         $this->creditor = $creditor;
+
+        return $this;
+    }
+
+    public function setPmtInfId(string $pmtInfId): self
+    {
+        $this->pmtInfId = $pmtInfId;
 
         return $this;
     }
@@ -112,7 +121,10 @@ class SepaLaravel
         $pmtInf = $dom->createElement('PmtInf');
         $parent->appendChild($pmtInf);
 
-        $pmtInf->appendChild($dom->createElement('PmtInfId', 'PMT-'.uniqid()));
+        // Usar PmtInfId proporcionado o generar uno si no se especificó
+        $pmtInfId = $this->pmtInfId ?? 'PMT-'.uniqid();
+        $pmtInf->appendChild($dom->createElement('PmtInfId', $pmtInfId));
+
         $pmtInf->appendChild($dom->createElement('PmtMtd', 'DD'));
 
         $pmtTpInf = $dom->createElement('PmtTpInf');
