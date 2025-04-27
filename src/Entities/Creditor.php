@@ -22,7 +22,7 @@ class Creditor
     public function __construct(string $identifier, DateTime $collectionDate, string $name, string $iban, string $bic, string $schemeId)
     {
         $this->validateIdentifier($identifier);
-        //$this->validateCollectionDate($collectionDate);
+        // $this->validateCollectionDate($collectionDate);
         $this->validateName($name);
         $this->validateIban($iban);
         $this->validateBic($bic);

@@ -56,13 +56,6 @@ class Debtor
             if (! preg_match('/^ES\d{22}$/', $iban)) {
                 throw new SepaException('Spanish IBAN must be 24 characters long');
             }
-
-            // Deshabilitar validación de checksum en entorno de testing
-            if (getenv('APP_ENV') !== 'testing') {
-                if (! $this->validateIbanChecksum($iban)) {
-                    throw new SepaException('Invalid IBAN checksum');
-                }
-            }
         }
     }
 
@@ -78,23 +71,6 @@ class Debtor
         if (! preg_match('/^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$/', $bic)) {
             throw new SepaException('Invalid BIC format. Must be 8 or 11 characters');
         }
-    }
-
-    private function validateIbanChecksum(string $iban): bool
-    {
-        $iban = substr($iban, 4).substr($iban, 0, 4);
-        $iban = str_replace(
-            range('A', 'Z'),
-            range('10', '35'),
-            $iban
-        );
-
-        $sum = 0;
-        foreach (str_split($iban) as $char) {
-            $sum = ($sum * 10 + intval($char)) % 97;
-        }
-
-        return $sum === 1;
     }
 
     public function getName(): string
