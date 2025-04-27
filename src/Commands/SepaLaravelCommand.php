@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace SepaLaravel\SepaLaravel\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class SepaLaravelCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'sepa-laravel';
 
     public $description = 'My command';
 
