@@ -10,23 +10,23 @@ use SepaLaravel\SepaLaravel\SepaLaravel;
 
 // 1. Configurar los datos de prueba con identificadores válidos
 $presenter = new Presenter(
-    'ES2401827363120201678036', // Identificador válido (formato ESXX-SUFIJO-NIF)
-    'COMO UN COHETE SL',         // Nombre
+    'ES2323233232332323', // Identificador válido (formato)
+    'NOMBRE',         // Nombre
     '0182'                       // Oficina BBVA
 );
 
 $creditor = new Creditor(
-    'ES2401827363120201678036', // Identificador válido
+    'ES2323233232332323', // Identificador válido
     new \DateTime('2025-05-16'), // Fecha de cobro (usando \DateTime)
-    'COMO UN COHETE SL',         // Nombre
-    'ES2401827363120201678036',  // IBAN (BBVA 0182)
+    'NOMBRE',         // Nombre
+    'ES2323233232332323',  // IBAN (BBVA 0182)
     'BBVAESMMXXX',               // BIC
     'ES50000B01958115'           // Scheme ID
 );
 
 $debtor = new Debtor(
     'PALMA MORENO CORRAL',       // Nombre
-    'ES4501820220020201712773',  // IBAN
+    'ES656666665665656565',  // IBAN
     'NOTPROVIDED'                // BIC
 );
 
@@ -37,7 +37,7 @@ $payment = new Payment(
     'RCUR',                      // Tipo secuencia (RCUR = recurrente)
     '124',                       // Referencia única
     485.35,                      // Importe
-    'Factura B2b-2500037 - Vencimiento num: 1 de 1 Fecha Vencimiento: 16-03-2025 - Orden: 8YAQR' // Concepto
+    'Factura - Orden: 8YAQR' // Concepto
 );
 
 $payment2 = new Payment(
@@ -47,7 +47,7 @@ $payment2 = new Payment(
     'RCUR',                      // Tipo secuencia (RCUR = recurrente)
     '321',                       // Referencia única
     200.14,                      // Importe
-    'Factura B2b-11111 - Vencimiento num: 1 de 1 Fecha Vencimiento: 122 - Orden: 8YAQR' // Concepto
+    'Factura Orden: 8YAQY' // Concepto
 );
 
 // 2. Crear instancia de SepaLaravel y configurar
