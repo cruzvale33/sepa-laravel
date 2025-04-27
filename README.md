@@ -1,84 +1,36 @@
-# Este paquete permite crear archivos para cobros SEPA en España.
+# 📦 SepaLaravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/cruzvale33/sepa-laravel.svg?style=flat-square)](https://packagist.org/packages/cruzvale33/sepa-laravel)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/cruzvale33/sepa-laravel/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/cruzvale33/sepa-laravel/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/cruzvale33/sepa-laravel/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/cruzvale33/sepa-laravel/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/cruzvale33/sepa-laravel.svg?style=flat-square)](https://packagist.org/packages/cruzvale33/sepa-laravel)
+**SepaLaravel** es un paquete PHP/Laravel para generar archivos XML de transferencias SEPA (Single Euro Payments Area) de manera sencilla y automática. Este paquete soporta: Presentadores (`Presenter`), Acreedores (`Creditor`), Deudores (`Debtor`), Pagos (`Payment`), y la generación de XML listo para enviar a entidades bancarias. ⚡ Instalación rápida, sin configuración manual gracias a Laravel Package Auto-Discovery. 
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+## ✨ Instalación
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/sepa-laravel.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/sepa-laravel)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
-
-## Installation
-
-You can install the package via composer:
+Requiere **PHP 8.0+** y **Laravel 8, 9 o 10**. Instala el paquete vía Composer:
 
 ```bash
 composer require cruzvale33/sepa-laravel
-```
 
-You can publish and run the migrations with:
+📚 Documentación
+Presenter: Define los datos de la empresa que envía el XML.
 
-```bash
-php artisan vendor:publish --tag="sepa-laravel-migrations"
-php artisan migrate
-```
+Creditor: Define los datos del acreedor de las domiciliaciones.
 
-You can publish the config file with:
+Debtor: Define los datos del cliente deudor.
 
-```bash
-php artisan vendor:publish --tag="sepa-laravel-config"
-```
+Payment: Define cada uno de los cobros o recibos que se quieren realizar.
 
-This is the contents of the published config file:
+La librería se encarga de generar automáticamente el XML en formato SEPA cumpliendo las normativas.
 
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="sepa-laravel-views"
-```
-
-## Usage
-
-```php
-$sepaLaravel = new SepaLaravel\SepaLaravel();
-echo $sepaLaravel->echoPhrase('Hello, SepaLaravel!');
-```
-
-## Testing
-
-```bash
+🛠️ Testing
+bash
+Copy
+Edit
 composer test
-```
+(Próximamente incluiremos un set de tests automatizados.)
 
-## Changelog
+📄 Licencia
+Este paquete está licenciado bajo la MIT License.
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+💬 Soporte
+¿Tienes dudas, errores o sugerencias? Abre un Issue en GitHub o envía un Pull Request con mejoras. ¡Toda contribución es bienvenida! 🚀
 
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
-## Credits
-
-- [Cruz Valerio](https://github.com/cruzvale33)
-- [All Contributors](../../contributors)
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+Creado con ❤️ por @cruzvale33
